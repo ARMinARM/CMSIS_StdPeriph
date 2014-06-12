@@ -11,25 +11,25 @@ int main(void)
     GPIO_InitTypeDef GPIO_InitStructure;
 
     /* Enable clock for GPIOB port */    
-    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC , ENABLE); 	
+    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB , ENABLE); 	
        
  	/* LED0 -> PB0   LED1 -> PB1 */
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
-    GPIO_Init(GPIOC, &GPIO_InitStructure);
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
 
     /* Infinite loop, just toggle leds */
     while (1)
 	{
 		/* LED0-ON LED1-OFF */
-		GPIO_SetBits(GPIOC , GPIO_Pin_0);
-		GPIO_ResetBits(GPIOC , GPIO_Pin_1);
+		GPIO_SetBits(GPIOB , GPIO_Pin_0);
+		GPIO_ResetBits(GPIOB , GPIO_Pin_1);
 		Delay(0xfffff);
         
 		/* LED0-OFF LED1-ON */
-		GPIO_ResetBits(GPIOC , GPIO_Pin_0);
-		GPIO_SetBits(GPIOC , GPIO_Pin_1);
+		GPIO_ResetBits(GPIOB , GPIO_Pin_0);
+		GPIO_SetBits(GPIOB , GPIO_Pin_1);
 		Delay(0xfffff);
     }			  
 }
