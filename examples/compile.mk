@@ -34,7 +34,8 @@ CFLAGS  = -O0 -g -Wall -I.\
    -mcpu=cortex-m3 -mthumb \
    $(INCLUDES) -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD
 
-LDFLAGS += -T$(LDSCRIPT) -mcpu=cortex-m3 -mthumb -nostdlib
+#LDFLAGS += -T$(LDSCRIPT) -mcpu=cortex-m3 -mthumb -nostdlib
+LDFLAGS += -T$(LDSCRIPT) -mcpu=cortex-m3 -mthumb -nostartfiles
 
 # Startup + System
 SOURCES += $(STARTUP)/startup_stm32f10x_hd.c
